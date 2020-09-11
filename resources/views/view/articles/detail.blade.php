@@ -33,9 +33,9 @@
                 <div id="content" class="container tab-pane active"><br>
                     <article>
                         <div class="row">
-                            <div class="col-lg-12">
+                            <div class="col-lg-12 ">
                                 @if($post->image)
-                                <div class="embed-responsive embed-responsive-16by9 campaign-style1 no-shadow mb-3 mb-md-0">
+                                <div class=" w-75 text-center embed-responsive embed-responsive-16by9 campaign-style1 no-shadow mb-3 mb-md-0">
                                     <img class="embed-responsive-item"
                                         src="{{asset($post->image)}}"> 
                                 </div>
