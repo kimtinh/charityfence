@@ -1,0 +1,21 @@
+.avatar-user img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.img-table{
+    width: 50px;
+    height: 50px;
+    border-radius: 4px;
+    object-fit: cover;
+    object-position: center center;
+}
+select.form-control{
+    padding: 0 8px;
+}
+select.form-control option{
+    background: #d9f8fb;
+    color: #565656;
+    border: 1px solid #d2d2d2;
+    font-size: 16px;
+}

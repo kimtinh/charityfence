@@ -1,0 +1,33 @@
+main.main {
+    padding-top: 130px;
+}
+main.main.detail .container .hr-top {
+    margin-top: 0;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    background: transparent;
+    color: #6022c9;
+    border-bottom: 2px solid;
+    border-radius: 0;
+}
+
+.nav-pills .nav-link {
+    color: #212529;
+    font-weight: 700;
+    border-radius: 0;
+}
+.tab-content div#content .campaign-content .content-campaign {
+    max-height: 100vh;
+    overflow: auto;
+}
+.progress {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 6px;
+    overflow: hidden;
+    font-size: 0.65625rem;
+    background-color: #e9ecef;
+    border-radius: 0.25rem;
+}
