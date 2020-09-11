@@ -6,15 +6,15 @@
                 <ul class="list-unstyled mt-4">
                     <li class="my-1">
                         <i class="fas fa-map-marker-alt mr-2"></i>
-                        <span>03 Quang Trung, Hải Châu, Đà Nẵng</span>
+                        <span>Đại học Duy Tân</span>
                     </li>
                     <li class="my-1">
                         <i class="fas fa-phone  mr-2"></i>
-                        <span>0773371909 (Miss Tính) </span>
+                        <span>012345678 (Mrs.Tính)</span>
                     </li>
                     <li class="my-1">
                         <i class="fas fa-envelope mr-2"></i>
-                        <span>ungho@wakeitup.net</span>
+                        <span>charityfence@gmail.com</span>
                     </li>
                 </ul>
                 <ul class="list-unstyled mt-4 d-flex">
@@ -27,7 +27,7 @@
                         <h5 class="text-primary">VỀ CHÚNG TÔI</h5>
                         <ul class="list-unstyled">
                             <li>
-                                <a href="about.html">Giới thiệu</a>
+                                <a href="{{route('view.about')}}">Giới thiệu</a>
                             </li>
                             <li>
                                 <a href="#">Tuyển dụng</a>
@@ -71,6 +71,6 @@
         </div>
     </div>
     <div class="container pb-4">
-        <span class="copyright-text">© Copyright 2018 Kindmate All Rights Reserved</span>
+        <span class="copyright-text">© Copyright 2018 CharityFence All Rights Reserved</span>
     </div>
 </footer>

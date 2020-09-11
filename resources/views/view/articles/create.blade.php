@@ -25,7 +25,7 @@
                     <div class="col-md-8 order-2 order-md-1">
                         <div class="form-group">
                             <h5>Tiêu đề*</h5>
-                            <input type="text" name="name" class="form-control" placeholder="Tiêu đề" required>
+                            <input type="text" name="name" value="{{ old('name') }}" class="form-control" placeholder="Tiêu đề" required>
                         </div>
                         <div class="form-group">
                             <h5>Nội dung*</h5>

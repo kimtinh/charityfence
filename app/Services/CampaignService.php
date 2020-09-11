@@ -23,7 +23,7 @@ class CampaignService{
             return Campaign::with(['user', 'difficult_situation', 'category'])->find($id);
         }
         // find campaign with status = 1
-            $data = Campaign::with('user')->where('status', Campaign::ACTIVE)->find($id);
+            $data = Campaign::with(['user', 'donate'])->withCount('donate')->where('status', Campaign::ACTIVE)->find($id);
         return $data;
     }
 
@@ -32,11 +32,12 @@ class CampaignService{
         // if params select empty then select query select *
         if(isset($params['select']))
             $select = $params['select'];
-        $data = Campaign::with('user')->select($select)->orderBy('created_at','asc');
+        $data = Campaign::with(['user','donate'])->select($select)->orderBy('created_at','asc');
 
         if(isset($params['where']))
             $data = $data->where($params['where']);
-
+        if(isset($params['orderBy']) && isset($params['order']))
+            $data = $data->orderBy( $params['orderBy'], $params['order'] );
         if(isset($params['search']) && trim($params['search']) != "")
             $data = $data->where('name', 'like', '%'.$params['search'].'%');
             

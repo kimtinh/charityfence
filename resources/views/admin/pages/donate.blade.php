@@ -17,8 +17,10 @@
                 <thead class=" text-primary">
                 <tr>
                     <th>#</th>
-                    <th>User Name</th>
+                    <th>User</th>
                     <th>Campaign</th>
+                    <th>Phone</th>
+                    <th>Email</th>
                     <th>Message</th>
                     <th>Price</th>
                     <th>Time</th>
@@ -28,7 +30,9 @@
                     @foreach($data as $index=>$item)
                     <tr>
                         <td>{{++$index}}</td>
-                        <td>{{$item->user->name}}</td>
+                        <td>{{$item->name}}</td>
+                        <td>{{$item->phone}}</td>
+                        <td>{{$item->email}}</td>
                         <td>{{$item->campaign->name}}</td>
                         <?php 
                             $message = strip_tags($item->message); 

@@ -17,7 +17,9 @@ class CreateTableDonate extends Migration
             $table->id();
             $table->unsignedBigInteger('price');
             $table->string('message',255);
-            $table->unsignedBigInteger('user_id');
+            $table->string('phone');
+            $table->string('name');
+            $table->string('email');
             $table->unsignedBigInteger('campaign_id');
             $table->timestamps();
         });

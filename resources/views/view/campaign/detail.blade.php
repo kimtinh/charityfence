@@ -38,16 +38,16 @@
                 <article>
                     <div class="row">
                         <div class="col-lg-8">
-                            @if($data->images)
+                           
                             <div class="embed-responsive embed-responsive-16by9 campaign-style1 no-shadow mb-3 mb-md-0">
-                                <img class="embed-responsive-item" src="{{asset($data->images)}}">
+                                @if($data->video)
+                                    {!! $data->video !!}
+                                @elseif($data->images)
+                                    <img class="embed-responsive-item" src="{{asset($data->images)}}">
+                                @else
+                                    <img class="embed-responsive-item" src="{{asset('images/no-img.jpg')}}">
+                                @endif
                             </div>
-                            @endif
-                            @if($data->video)
-                            <div class="embed-responsive embed-responsive-16by9 campaign-style1 no-shadow mb-3 mb-md-0">
-                                {!! $data->video !!}
-                            </div>
-                            @endif
                         </div>
                         <div class="col-lg-4">
                             <div class=" d-flex flex-column align-items-start  bg-light p-3 h-100">
@@ -65,7 +65,7 @@
                                         </div>
                                         <div class="d-flex justify-content-between align-items-end">
                                             <div class="user-count">
-                                                <strong>1</strong> người ủng hộ
+                                                <strong>{{ count($data->donate) }}</strong> người ủng hộ
                                             </div>
                                             <div class="user-count">
                                                 {{ (new Carbon\Carbon($data->date_end))->diffForHumans()}}
@@ -73,7 +73,7 @@
                                         </div>
                                     </div>
                                     <div class="my-4">
-                                        <a href="https://kindmate.net/donate/1395"
+                                        <a href="{{ route('view.donate', $data->id) }}"
                                             class="btn btn-danger btn-lg btn-block">Ủng hộ ngay</a>
                                         <div class="divider"></div>
                                         <a href="https://www.facebook.com/sharer/sharer.php?u={{url()->current()}}"
@@ -98,9 +98,8 @@
                                         <div class="media-body">
                                             <p class="dotdotdot mb-0">{{$data->user->name}}</p>
                                             <div class="campaign-summary">
-                                                <a data-toggle="pill" href="#creator"
-                                                    class="small change-tab-to-creator">Xem thông tin</a>
-
+                                            <a href="{{route('view.profile',$data->user_id)}}"
+                                                        class="small">Xem thông tin</a>
                                             </div>
                                         </div>
                                     </div>
@@ -127,34 +126,35 @@
                 <div class="row mt-4">
                     <div class="col-lg-8">
                         <div class="donate-content mt-4">
-                            <h3 class="mb-3">1 người ủng hộ</h3>
+                            <h3 class="mb-3">{{ count($data->donate) }} người ủng hộ</h3>
+                            @if(!empty($data->donate) && count($data->donate))
                             <div class="my-3">
                                 <table class="table table-block">
                                     <tbody>
+                                        @foreach($data->donate as $donate)
                                         <tr>
                                             <td>
                                                 <div class="media">
                                                     <img src="https://kindmate.net/svg/transfer.svg"
-                                                        alt="kindmate-payment-type">
+                                                        alt="icon payment">
                                                     <div class="media-body ml-3">
-                                                        <h6 class="mb-1">Ẩn Danh</h6>
-                                                        <p class="mb-1">Chúc Dự án The Kapusta sẽ thành công trong
-                                                            các hoạt
-                                                            động sắp tới.</p>
+                                                        <h6 class="mb-1">{{$donate->name}}</h6>
+                                                        <p class="mb-1">{{$donate->message}}</p>
                                                         <p class="small text-secondary mb-0">
-                                                            KM012378 - Chuyển khoản - 5 ngày trước
+                                                            Donate {{ (new Carbon\Carbon($donate->created_at))->diffForHumans()}}
                                                         </p>
                                                     </div>
                                                 </div>
                                             </td>
                                             <td class="text-right ">
-                                                <strong class="text-primary white-space">500,000 VNĐ</strong>
+                                                <strong class="text-primary white-space">{{number_format($donate->price)}} VNĐ</strong>
                                             </td>
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
-
                             </div>
+                            @endif
                         </div>
                     </div>
                     <div class="col-lg-4">
@@ -162,28 +162,28 @@
                             <div class="w-100">
                                 <div class="campagin-progress">
                                     <div class="d-flex justify-content-between align-items-end">
-                                        <h4 class="text-primary mb-0 h3">500,000 đ
-                                            <small>(2%)</small></h4>
-                                        <span>30 tr đ</span>
+                                        <h4 class="text-primary mb-0 h3">{{number_format($data->price_total)}} đ
+                                            <small>({{ number_format($perCent,2,'.',"") }}%)</small></h4>
+                                        <span>{{number_format($data->amount)}} đ</span>
                                     </div>
                                     <div class="progress my-2">
-                                        <div class="progress-bar" style="width: 2%" role="progressbar"
+                                        <div class="progress-bar" style="width: {{$perCent}}%" role="progressbar"
                                             aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                     </div>
                                     <div class="d-flex justify-content-between align-items-end">
                                         <div class="user-count">
-                                            <strong>1</strong> người ủng hộ
+                                            <strong>{{ count($data->donate) }}</strong> người ủng hộ
                                         </div>
                                         <div class="user-count">
-                                            Còn lại 356 ngày
+                                         {{ (new Carbon\Carbon($data->date_end))->diffForHumans()}}
                                         </div>
                                     </div>
                                 </div>
                                 <div class="my-4">
-                                    <a href="https://kindmate.net/donate/1395"
+                                    <a href="{{ route('view.donate', $data->id) }}"
                                         class="btn btn-danger btn-lg btn-block">Ủng hộ ngay</a>
                                     <div class="divider"></div>
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://kindmate.net/project/1395/the-kapusta"
+                                    <a href="https://www.facebook.com/sharer/sharer.php?u={{url()->current()}}"
                                         class="btn btn-default btn-lg bg-white btn-block mt-3">Chia sẻ ngay</a>
 
                                 </div>
@@ -193,10 +193,6 @@
                                     <div class="hints">Tips: Bạn có biết, mỗi lượt chia sẻ của bạn có thể mang
                                         lại 2
                                         lượt ủng hộ từ bạn bè.</div>
-                                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://kindmate.net/project/1395/the-kapusta"
-                                        class="text-info mt-1">
-                                        <i class="zmdi zmdi-facebook mr-1"></i> Chia sẻ ngay
-                                    </a>
                                 </div>
                             </div>
                             <div class="mt-auto w-100">
@@ -213,14 +209,13 @@
                                 </div>
                                 <div class="media align-items-center">
                                     <img width="50" class="mr-2 avatar "
-                                        src="https://kindmate.net/Uploads/2020/08/03/5f2819f599ef5-kapusta-a--nh-ava.jpg"
+                                        src="{{ asset($data->user->avatar ?? 'images/user.png') }}"
                                         alt="The Kapusta">
                                     <div class="media-body">
-                                        <p class="dotdotdot mb-0">The Kapusta</p>
+                                        <p class="dotdotdot mb-0">{{$data->user->name}}</p>
                                         <div class="campaign-summary">
-                                            <a data-toggle="pill" href="#creator"
-                                                class="small change-tab-to-creator">Xem thông tin</a>
-
+                                            <a href="{{route('view.profile',$data->user_id)}}"
+                                                        class="small">Xem thông tin</a>
                                         </div>
                                     </div>
                                 </div>
@@ -256,12 +251,12 @@
                                     <div class="w-100">
                                         <div class="campagin-progress">
                                             <div class="d-flex justify-content-between align-items-end">
-                                                <h4 class="text-primary mb-0 h3">20,000 đ
-                                                    <small>(0%)</small></h4>
-                                                <span>5 tr đ</span>
+                                                <h4 class="text-primary mb-0 h3">{{number_format($data->price_total)}} đ
+                                                    <small>({{ number_format($perCent,2,'.',"") }}%)</small></h4>
+                                                <span>{{number_format($data->amount)}} đ</span>
                                             </div>
                                             <div class="progress my-2">
-                                                <div class="progress-bar" style="width: 0%" role="progressbar"
+                                                <div class="progress-bar" style="width: {{$perCent}}%" role="progressbar"
                                                     aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                             </div>
                                             <div class="d-flex justify-content-between align-items-end">
@@ -274,10 +269,10 @@
                                             </div>
                                         </div>
                                         <div class="my-4">
-                                            <a href="https://kindmate.net/donate/1404"
+                                            <a href="{{ route('view.donate', $data->id) }}"
                                                 class="btn btn-danger btn-lg btn-block">Ủng hộ ngay</a>
                                             <div class="divider"></div>
-                                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://kindmate.net/project/1404/trai-he-giao-duc-be-khoe-be-ngoan"
+                                            <a href="https://www.facebook.com/sharer/sharer.php?u={{url()->current()}}"
                                                 class="btn btn-default btn-lg bg-white btn-block mt-3">Chia sẻ
                                                 ngay</a>
 
@@ -287,10 +282,6 @@
                                         <div class="small">
                                             <div class="hints">Tips: Bạn có biết, mỗi lượt chia sẻ của bạn có thể
                                                 mang lại 2 lượt ủng hộ từ bạn bè.</div>
-                                            <a href="https://www.facebook.com/sharer/sharer.php?u=https://kindmate.net/project/1404/trai-he-giao-duc-be-khoe-be-ngoan"
-                                                class="text-info mt-1">
-                                                <i class="zmdi zmdi-facebook mr-1"></i> Chia sẻ ngay
-                                            </a>
                                         </div>
                                     </div>
                                     <div class="mt-auto w-100">
@@ -307,14 +298,13 @@
                                         </div>
                                         <div class="media align-items-center">
                                             <img width="50" class="mr-2 avatar "
-                                                src="https://kindmate.net/images/user-avatar.png"
-                                                alt="CLB tình nguyện Bé Khỏe Bé Ngoan">
+                                                src="{{ asset($data->user->avatar ?? 'images/user.png') }}"
+                                                alt="The Kapusta">
                                             <div class="media-body">
-                                                <p class="dotdotdot mb-0">CLB tình nguyện Bé Khỏe Bé Ngoan</p>
+                                                <p class="dotdotdot mb-0">{{$data->user->name}}</p>
                                                 <div class="campaign-summary">
-                                                    <a data-toggle="pill" href="#creator"
-                                                        class="small change-tab-to-creator">Xem thông tin</a>
-
+                                                    <a href="{{route('view.profile',$data->user_id)}}"
+                                                        class="small">Xem thông tin</a>
                                                 </div>
                                             </div>
                                         </div>

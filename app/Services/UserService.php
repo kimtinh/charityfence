@@ -5,6 +5,8 @@ namespace App\Services;
 use Illuminate\Support\Facades\Password;
 use App\User;
 use App\Helpers\Handler;
+use Auth;
+use Illuminate\Support\Facades\Hash;
 
 class UserService{
 
@@ -44,6 +46,15 @@ class UserService{
 
     public function deleteUsers($arr){
         return User::whereIn('id', $arr)->delete();
+    }
+
+    public function changePassword($data){
+        $user = Auth::user();
+        if( Hash::check($data['password'], $user->password ) ){
+            $user->password = $data['new_password'];
+            return $user;
+        }
+        return false;
     }
 }
 

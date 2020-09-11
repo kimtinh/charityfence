@@ -67,7 +67,6 @@
                                 required="" class="form-control" placeholder="Mô tả ngắn" rows="3" maxlength="255"
                                 name="description" cols="50">{{old('description')}}</textarea>
                         </div>
-
                         <div class="form-group">
                             <label for="campaign-money">Số tiền mong muốn*</label>
                             <div class="input-group">

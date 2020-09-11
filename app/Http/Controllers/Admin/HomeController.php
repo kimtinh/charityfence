@@ -9,6 +9,7 @@ use App\Services\CategoryService;
 use App\Services\UserService;
 use App\Services\PostService;
 use App\Services\DifficultService;
+use App\Http\Requests\ChangePasswordRequest;
 
 class HomeController extends Controller
 {
@@ -39,4 +40,16 @@ class HomeController extends Controller
         ];
         return view('admin.index', $data);
     }
+
+    public function changePassword(){
+        return view('admin.auth.change-password');
+    }
+
+    public function updatePassword(ChangePasswordRequest $request){
+        $result = $this->user->changePassword($request->all());
+        if($result)
+            return redirect()->route('admin.index')->with('success','Đổi mật khẩu thành công!');
+        return redirect()->back()->with('error','Sai mật khẩu!')->withInput();
+    }
+
 }

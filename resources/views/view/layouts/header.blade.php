@@ -44,6 +44,9 @@
                             <a class="dropdown-item" href="{{ route('view.profile', Auth()->user()->id) }}">
                                 {{ __('Trang cá nhân') }}
                             </a>
+                            <a class="dropdown-item border-bottom" href="{{ route('view.change-password') }}">
+                                {{ __('Đổi mật khẩu') }}
+                            </a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                 onclick="event.preventDefault();
                                                 document.getElementById('logout-form').submit();">

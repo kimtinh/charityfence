@@ -18,7 +18,6 @@ class AddReferencesAllTable extends Migration
             $table->foreign('category_id')->references('id')->on('category')->onDelete('cascade');
         });
         Schema::table('donate', function (Blueprint $table) {
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('campaign_id')->references('id')->on('campaign')->onDelete('cascade');
         });
         Schema::table('comment', function (Blueprint $table) {

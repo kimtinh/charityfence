@@ -4,7 +4,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class PostRequest extends FormRequest
+class DonateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -13,7 +13,7 @@ class PostRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return tru;
     }
 
     /**
@@ -23,14 +23,13 @@ class PostRequest extends FormRequest
      */
     public function rules()
     {
-        $rules = [
-            'name' => 'required|string|min:10|max:125',
-            'content' => 'required|string',
-            'user_id' => 'required|numeric',
+        return [
+            'price' => 'required|numeric',
+            'message' => 'requird|string',
+            'campaign_id' => 'required',
+            'name' => 'required',
+            'phone' => 'required',
+            'email' => 'required|email'
         ];
-        if(!$this->id){
-            $rules['image'] = 'required';  
-        }
-        return $rules;
     }
 }

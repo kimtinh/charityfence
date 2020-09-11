@@ -36,8 +36,7 @@
                         </p>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownProfile">
-                        <a class="dropdown-item" href="#">Profile</a>
-                        <a class="dropdown-item" href="#">Settings</a>
+                        <a class="dropdown-item" href="{{route('admin.change-password')}}">Change Password</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="javascript:document.getElementById('logout-form').submit()">Log out</a>
                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

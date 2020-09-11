@@ -15,7 +15,7 @@
                             Minh bạch quyên góp <br> Dễ dàng ủng hộ
                         </h1>
                         <p class="text-secondary my-4 pr-4 text-intro">
-                            Kindmate là một nền tảng gây quỹ cộng đồng - nơi mọi cá nhân, tổ chức đều có thể tự tạo
+                            Charityfence là một nền tảng gây quỹ cộng đồng - nơi mọi cá nhân, tổ chức đều có thể tự tạo
                             một
                             trang web gây quỹ nhanh chóng và chuyên nghiệp...
                             <a href="about.html">Tìm hiểu</a>
@@ -135,53 +135,54 @@
             </div>
         </div>
     </section>
+    @if(!empty($campaignsTop3) && count($campaignsTop3))
     <section id="success-campaign" class="mb-5">
         <div class="container  border-top mt-4 pt-5">
             <h5 class="section-title mb-4">Chiến dịch thành công</h5>
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                    <li data-target="#carouselExampleIndicators" data-slide-to="1" class=""></li>
+                    @for($i = 0; $i < count($campaignsTop3); $i++)
+                    <li data-target="#carouselExampleIndicators" data-slide-to="{{$i}}" class="{{$i==0?'active':''}}"></li>
+                    @endfor
                 </ol>
                 <div class="carousel-inner">
+                    @foreach($campaignsTop3 as $item)
                     <div class="carousel-item campaign-style3 active">
                         <div class="row">
                             <div class="col-md-7">
                                 <div class="embed-responsive embed-responsive-16by9 campaign-style1 mb-3 mb-md-0">
                                     <img class="embed-responsive-item"
-                                        src="https://kindmate.net/Uploads/2019/10/29/5db7a25ce0597-hiojojojojo.jpg"
-                                        alt="Dự án Đông ấm cho em - Mang tình yêu thương tới trẻ em bị bỏ rơi tại chùa Mục Đồng">
+                                        src="{{asset($item->images ?? 'images/no-img.jpg')}}"
+                                        alt="{{$item->name}}">
                                 </div>
                             </div>
                             <div class="col-md-5 d-flex flex-column align-items-start">
                                 <div class="w-100">
                                     <a href="detail.html">
-                                        <h2 class="campaign-title text-dark">Dự án Đông ấm cho em - Mang tình yêu
-                                            thương tới trẻ em bị bỏ rơi tại chùa Mục Đồng</h2>
+                                        <h2 class="campaign-title text-dark">{{$item->name}}</h2>
                                     </a>
-                                    <div class="text-secondary my-3">Dang tay giúp đỡ các trẻ em bị bỏ rơi và các bà
-                                        mẹ đơn thân đang nương tựa tại Chùa Mục Đồng. Mùa đông đang tới rất gần, số
-                                        lượng trẻ em bị bỏ rơi ngày càng tăng lên, rất cần sự hỗ trợ của cộng đồng.
+                                    <div class="text-secondary my-3">{{  substr(strip_tags($item->content),0,500) }}
                                     </div>
 
                                     <div class="campagin-progress">
+                                    <?php $perCent = (float)($item->price_total / $item->amount) *100 ?>
                                         <div class="d-flex justify-content-between align-items-end">
-                                            <h4 class="text-primary mb-0 h3">37,600,000
-                                                đ <small>(150%)</small></h4>
-                                            <span>25 tr triệu</span>
+                                            <h4 class="text-primary mb-0 h3">{{number_format($item->price_total)}}
+                                                đ <small>({{(int)$perCent}}%)</small></h4>
+                                            <span>{{number_format($item->amount)}} đ</span>
                                         </div>
                                         <div class="progress my-2">
-                                            <div class="progress-bar" style="width: 150%" role="progressbar"
+                                            <div class="progress-bar" style="width: {{(int)$perCent}}%" role="progressbar"
                                                 aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
                                         </div>
                                         <div class="d-flex justify-content-between align-items-end">
                                             <div class="user-count">
-                                                <strong>85</strong> người
+                                                <strong>{{count($item->donate)}}</strong> người
                                                 ủng hộ
                                             </div>
                                             <div class="user-count">
                                                 <span class="small text-secondary">
-                                                    Đã hết hạn 9 tháng trước
+                                                    Hết hạn vào {{Date('d/m/Y', strtotime($item->date_end))}}
                                                 </span>
                                             </div>
                                         </div>
@@ -193,74 +194,17 @@
                                     </div>
                                     <div class="media align-items-center">
                                         <img width="50" class="mr-2 avatar "
-                                            src="https://kindmate.net/images/user-avatar.png"
-                                            alt="https://kindmate.net/images/user-avatar.png">
+                                            src="{{asset($item->user->avatar ?? 'images/user.png')}}"
+                                            alt="avatar user">
                                         <div class="media-body">
-                                            <p class="dotdotdot mb-0">IvyPrep Education</p>
+                                            <p class="dotdotdot mb-0">{{$item->user->name}}</p>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item campaign-style3">
-                        <div class="row">
-                            <div class="col-md-7">
-                                <div class="embed-responsive embed-responsive-16by9 campaign-style1 mb-3 mb-md-0">
-                                    <img class="embed-responsive-item"
-                                        src="https://kindmate.net/Uploads/2019/10/09/5d9dbafcad669-cover.jpg"
-                                        alt="Gây quỹ Thành lập Xưởng nghệ thuật đào tạo nghề - hướng nghiệp cho trẻ tự kỷ">
-                                </div>
-                            </div>
-                            <div class="col-md-5 d-flex flex-column align-items-start">
-                                <div class="w-100">
-                                    <a href="detail.html">
-                                        <h2 class="campaign-title text-dark">Gây quỹ Thành lập Xưởng nghệ thuật đào
-                                            tạo nghề - hướng nghiệp cho trẻ tự kỷ</h2>
-                                    </a>
-                                    <div class="text-secondary my-3">Xưởng nghệ thuật Tòhe Fun là nơi đào tạo nghề -
-                                        hướng nghiệp dành cho trẻ tự kỷ, nhằm chuẩn bị cho các bạn một cuộc sống tự
-                                        lập và hoà nhập tốt hơn với xã hội khi đến giai đoạn trưởng thành.</div>
-
-                                    <div class="campagin-progress">
-                                        <div class="d-flex justify-content-between align-items-end">
-                                            <h4 class="text-primary mb-0 h3">50,500,000
-                                                đ <small>(15%)</small></h4>
-                                            <span>345 tr triệu</span>
-                                        </div>
-                                        <div class="progress my-2">
-                                            <div class="progress-bar" style="width: 15%" role="progressbar"
-                                                aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
-                                        </div>
-                                        <div class="d-flex justify-content-between align-items-end">
-                                            <div class="user-count">
-                                                <strong>47</strong> người
-                                                ủng hộ
-                                            </div>
-                                            <div class="user-count">
-                                                <span class="small text-secondary">
-                                                    Đã hết hạn 7 tháng trước
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="mt-auto w-100">
-                                    <div class="small text-secondary mb-1">
-                                        ĐƠN VỊ TỔ CHỨC
-                                    </div>
-                                    <div class="media align-items-center">
-                                        <img width="50" class="mr-2 avatar "
-                                            src="https://kindmate.net/Uploads/2019/10/09/5d9dbb0247021-logo.jpg"
-                                            alt="Tòhe">
-                                        <div class="media-body">
-                                            <p class="dotdotdot mb-0">Tòhe</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    @endforeach
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -273,15 +217,16 @@
             </div>
         </div>
     </section>
+    @endif
     <section id="introduce" class="py-5 bg-light">
         <div class="container">
             <div class="top-introduce py-5">
                 <div class="row">
                     <div class="col-md-5 order-2 order-md-1 d-flex align-items-center">
                         <article class="introduce-box">
-                            <h2>Kindmate là một nền tảng gây quỹ cộng đồng</h2>
+                            <h2>Charityfence là một nền tảng gây quỹ cộng đồng</h2>
                             <p class="my-3 text-secondary">
-                                Được phát triển bởi Wakeitup, Kindmate tập trung vào việc sử dụng công nghệ để giảm bớt
+                                Được Charityfence tập trung vào việc sử dụng công nghệ để giảm bớt
                                 rào cản và kết
                                 nối các nguồn lực cộng đồng, giúp cho việc gây quỹ trở nên đơn giản, hiệu quả và minh
                                 bạch.
@@ -325,7 +270,7 @@
 
             <div class="bottom-introduce mt-4 row">
                 <div class="text-center py-2 col-md-8 offset-md-2">
-                    <h2 class="mb-5">Mọi cá nhân, tổ chức đều có thể tự tạo một trang web gây quỹ với Kindmate</h2>
+                    <h2 class="mb-5">Mọi cá nhân, tổ chức đều có thể tự tạo một trang web gây quỹ với Charityfence</h2>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="my-2">

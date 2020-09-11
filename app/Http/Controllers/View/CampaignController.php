@@ -12,9 +12,9 @@ use App\Http\Requests\CampaignRequest;
 class CampaignController extends Controller
 {
     //
-    private $campaign;
-    private $category;
-    private $user;
+    protected $campaign;
+    protected $category;
+    protected $user;
 
     public function __construct(CampaignService $campaign, CategoryService $category,UserService $user){
         $this->campaign = $campaign;

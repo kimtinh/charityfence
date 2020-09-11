@@ -243,5 +243,19 @@
         }
       });
     });
+    @if(session()->get('success') || session()->get('error'))
+      $.notify({
+          icon: 'add_alert',
+          message: "{{ session()->get('success') ?? session()->get('error') }}"
+
+      },{
+          type: "{{ session()->get('success') ? 'success' : 'error' }}",
+          timer: 4000,
+          placement: {
+              from: 'top',
+              align: 'center'
+          }
+      });
+    @endif
   });
 </script>

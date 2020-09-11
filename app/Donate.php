@@ -8,7 +8,7 @@ class Donate extends Model
 {
     //
     protected $table = 'donate';
-    protected $fillable = ['price','message','user_id','campaign_id'];
+    protected $fillable = ['price','message','campaign_id','phone','email','name'];
 
     public function campaign(){
         return $this->belongsTo('App\Campaign');

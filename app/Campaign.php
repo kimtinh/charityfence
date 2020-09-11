@@ -24,4 +24,8 @@ class Campaign extends Model
     public function category(){
         return $this->belongsTo('App\Category');
     }
+
+    public function donate(){
+        return $this->hasMany('App\Donate');
+    }
 }
