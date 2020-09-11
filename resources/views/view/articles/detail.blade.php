@@ -33,7 +33,7 @@
                 <div id="content" class="container tab-pane active"><br>
                     <article>
                         <div class="row">
-                            <div class="col-lg-8">
+                            <div class="col-lg-12">
                                 @if($post->image)
                                 <div class="embed-responsive embed-responsive-16by9 campaign-style1 no-shadow mb-3 mb-md-0">
                                     <img class="embed-responsive-item"
@@ -51,120 +51,7 @@
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-lg-4">
-                                <article class="card campaign-style2 mb-4">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <img class="embed-responsive-item"
-                                            src="https://kindmate.net/Uploads/2020/08/08/5f2e2c95a031d-cover.jpg">
-                                    </div>
-                                    <div class="card-body pb-3  d-flex flex-column align-items-start">
-                                        <div class="campaign-main-info mb-auto w-100">
-                                            <div
-                                                class="campaign-badge-box d-flex justify-content-between align-items-center">
-                                                <img width="50" height="50" class="mr-2 avatar bg-white img-fill"
-                                                    src="https://kindmate.net/images/user-avatar.png"
-                                                    alt="CLB tình nguyện Bé Khỏe Bé Ngoan">
-                                            </div>
-                                            <a href="https://kindmate.net/project/1404/trai-he-giao-duc-be-khoe-be-ngoan">
-                                                <h6 class="card-title mt-3 mb-2 text-body ">TRẠI HÈ GIÁO DỤC BÉ KHỎE BÉ
-                                                    NGOAN</h6>
-                                            </a>
-                                            <div class="card-text text-secondary">
-                                                Dự án đem đến những kiến thức y khoa cơ bản, giúp các bệnh nhi tại bệnh viện
-                                                Nhi Đồng 1
-                                                và Nhi Đồng 2 có thể hiểu và tự chăm sóc bản thân.
-                                            </div>
-                                            <div class="card-text card-author mt-1">
-                                                <span class="text-secondary">bởi</span>
-                                                <a href="javascript:void(0)" class="campaign-author-link">CLB tình nguyện Bé
-                                                    Khỏe Bé
-                                                    Ngoan</a>
-                                            </div>
-                                            <ul class="tags-box">
-                                                <li>
-                                                    <a href="#">Hoàn cảnh khó khăn</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Trẻ em</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Mùa đông</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div
-                                            class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top w-100">
-                                            <div class="process-style d-flex justify-content-between align-items-center">
-
-                                            </div>
-                                            <div class="campaign-info text-right">
-
-                                                <div class="campaign-deadline">
-                                                    <span class="small text-secondary">
-                                                        11/08/2020
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </article>
-                                <article class="card campaign-style2 mb-4">
-                                    <div class="embed-responsive embed-responsive-16by9">
-                                        <img class="embed-responsive-item"
-                                            src="https://kindmate.net/Uploads/2020/08/08/5f2e2c95a031d-cover.jpg">
-                                    </div>
-                                    <div class="card-body pb-3  d-flex flex-column align-items-start">
-                                        <div class="campaign-main-info mb-auto w-100">
-                                            <div
-                                                class="campaign-badge-box d-flex justify-content-between align-items-center">
-                                                <img width="50" height="50" class="mr-2 avatar bg-white img-fill"
-                                                    src="https://kindmate.net/images/user-avatar.png"
-                                                    alt="CLB tình nguyện Bé Khỏe Bé Ngoan">
-                                            </div>
-                                            <a href="https://kindmate.net/project/1404/trai-he-giao-duc-be-khoe-be-ngoan">
-                                                <h6 class="card-title mt-3 mb-2 text-body ">TRẠI HÈ GIÁO DỤC BÉ KHỎE BÉ
-                                                    NGOAN</h6>
-                                            </a>
-                                            <div class="card-text text-secondary">
-                                                Dự án đem đến những kiến thức y khoa cơ bản, giúp các bệnh nhi tại bệnh viện
-                                                Nhi Đồng 1
-                                                và Nhi Đồng 2 có thể hiểu và tự chăm sóc bản thân.
-                                            </div>
-                                            <div class="card-text card-author mt-1">
-                                                <span class="text-secondary">bởi</span>
-                                                <a href="javascript:void(0)" class="campaign-author-link">CLB tình nguyện Bé
-                                                    Khỏe Bé
-                                                    Ngoan</a>
-                                            </div>
-                                            <ul class="tags-box">
-                                                <li>
-                                                    <a href="#">Hoàn cảnh khó khăn</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Trẻ em</a>
-                                                </li>
-                                                <li>
-                                                    <a href="#">Mùa đông</a>
-                                                </li>
-                                            </ul>
-                                        </div>
-                                        <div
-                                            class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top w-100">
-                                            <div class="process-style d-flex justify-content-between align-items-center">
-
-                                            </div>
-                                            <div class="campaign-info text-right">
-
-                                                <div class="campaign-deadline">
-                                                    <span class="small text-secondary">
-                                                        11/08/2020
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </article>
-                            </div>
+                           
                         </div>
                     </article>
 
