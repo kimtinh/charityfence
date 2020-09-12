@@ -1,5 +1,5 @@
 @extends('view.layouts.base')
-  
+
 @section('css')
 <link rel="stylesheet" href="{{asset('css/index.css')}}">
 @endsection
@@ -80,14 +80,13 @@
     </section>
     <section id="list-campaign" class="pb-5">
         <div class="container">
-          @if(!empty($listCampaign) && count($listCampaign))
+            @if(!empty($listCampaign) && count($listCampaign))
             <div class="row list-campaigns">
-              @foreach($listCampaign as $item)
+                @foreach($listCampaign as $item)
                 <div class="col-lg-3 col-md-4 col-sm-6 col-12">
                     <article class="card campaign-style2 mb-4">
                         <div class="embed-responsive embed-responsive-16by9">
-                            <img class="embed-responsive-item"
-                                src="{{asset($item->images ?? 'images/no-img.jpg')}}">
+                            <img class="embed-responsive-item" src="{{asset($item->images ?? 'images/no-img.jpg')}}">
                         </div>
                         <div class="card-body pb-3  d-flex flex-column align-items-start">
                             <div class="campaign-main-info mb-auto w-100">
@@ -108,9 +107,9 @@
                             </div>
                             <div class="d-flex justify-content-between align-items-center mt-3 pt-3 border-top w-100">
                                 <div class="process-style d-flex justify-content-between align-items-center">
-                                <?php $perCent = (float)($item->price_total / $item->amount) *100 ?>
+                                    <?php $perCent = (float)($item->price_total / $item->amount) *100 ?>
                                     <div class="circlechart" data-percentage="{{(int)$perCent}}">
-                                    {{ number_format($perCent,2,'.',"") }}%
+                                        {{ number_format($perCent,2,'.',"") }}%
                                     </div>
                                 </div>
                                 <div class="campaign-info text-right">
@@ -119,7 +118,7 @@
                                     </div>
                                     <div class="campaign-deadline">
                                         <span class="small text-secondary">
-                                          Hết hạn vào {{Date('d/m/Y',strtotime($item->date_end))}}
+                                            Hết hạn vào {{Date('d/m/Y',strtotime($item->date_end))}}
                                         </span>
                                     </div>
                                 </div>
@@ -127,33 +126,35 @@
                         </div>
                     </article>
                 </div>
-              @endforeach
+                @endforeach
             </div>
-          @endif
+            @endif
             <div class="text-center mt-3">
                 <a href="{{route('view.explore')}}" class="btn btn-danger btn-lg">Xem tất cả chiến dịch</a>
             </div>
         </div>
     </section>
+
     @if(!empty($campaignsTop3) && count($campaignsTop3))
     <section id="success-campaign" class="mb-5">
         <div class="container  border-top mt-4 pt-5">
             <h5 class="section-title mb-4">Chiến dịch thành công</h5>
             <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                 <ol class="carousel-indicators">
-                    @for($i = 0; $i < count($campaignsTop3); $i++)
-                    <li data-target="#carouselExampleIndicators" data-slide-to="{{$i}}" class="{{$i==0?'active':''}}"></li>
-                    @endfor
+                    @for($i = 0; $i < count($campaignsTop3); $i++) <li data-target="#carouselExampleIndicators"
+                        data-slide-to="{{$i}}" class="{{$i==0?'active':''}}">
+                        </li>
+                        @endfor
                 </ol>
                 <div class="carousel-inner">
-                    @foreach($campaignsTop3 as $item)
+
                     <div class="carousel-item campaign-style3 active">
+                        @foreach($campaignsTop3 as $item)
                         <div class="row">
                             <div class="col-md-7">
                                 <div class="embed-responsive embed-responsive-16by9 campaign-style1 mb-3 mb-md-0">
                                     <img class="embed-responsive-item"
-                                        src="{{asset($item->images ?? 'images/no-img.jpg')}}"
-                                        alt="{{$item->name}}">
+                                        src="{{asset($item->images ?? 'images/no-img.jpg')}}" alt="{{$item->name}}">
                                 </div>
                             </div>
                             <div class="col-md-5 d-flex flex-column align-items-start">
@@ -165,15 +166,16 @@
                                     </div>
 
                                     <div class="campagin-progress">
-                                    <?php $perCent = (float)($item->price_total / $item->amount) *100 ?>
+                                        <?php $perCent = (float)($item->price_total / $item->amount) *100 ?>
                                         <div class="d-flex justify-content-between align-items-end">
                                             <h4 class="text-primary mb-0 h3">{{number_format($item->price_total)}}
                                                 đ <small>({{(int)$perCent}}%)</small></h4>
                                             <span>{{number_format($item->amount)}} đ</span>
                                         </div>
                                         <div class="progress my-2">
-                                            <div class="progress-bar" style="width: {{(int)$perCent}}%" role="progressbar"
-                                                aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+                                            <div class="progress-bar" style="width: {{(int)$perCent}}%"
+                                                role="progressbar" aria-valuenow="0" aria-valuemin="0"
+                                                aria-valuemax="100"></div>
                                         </div>
                                         <div class="d-flex justify-content-between align-items-end">
                                             <div class="user-count">
@@ -194,8 +196,7 @@
                                     </div>
                                     <div class="media align-items-center">
                                         <img width="50" class="mr-2 avatar "
-                                            src="{{asset($item->user->avatar ?? 'images/user.png')}}"
-                                            alt="avatar user">
+                                            src="{{asset($item->user->avatar ?? 'images/user.png')}}" alt="avatar user">
                                         <div class="media-body">
                                             <p class="dotdotdot mb-0">{{$item->user->name}}</p>
                                         </div>
@@ -203,8 +204,9 @@
                                 </div>
                             </div>
                         </div>
+                        @endforeach
                     </div>
-                    @endforeach
+
                 </div>
                 <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -218,6 +220,8 @@
         </div>
     </section>
     @endif
+
+
     <section id="introduce" class="py-5 bg-light">
         <div class="container">
             <div class="top-introduce py-5">
@@ -300,7 +304,7 @@
     </section>
 </main>
 @endsection
-    
-@section('scripts')
 
+@section('scripts')
+$('.carousel').carousel()
 @endsection
