@@ -26,7 +26,7 @@ class DifficultRequest extends FormRequest
         return [
             'name' => 'required|string',
             'description' => 'required|string',
-            'address' => 'required|alpha_dash',
+            'address' => 'required|string',
             'phone' => 'required'
         ];
     }
