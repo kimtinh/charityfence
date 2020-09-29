@@ -87,7 +87,7 @@
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="my-2">
-                                    <img src="https://kindmate.net/svg/quyen-gop.svg" alt="quyen-gop" class="mb-4">
+                                    <imgsrc="{{asset('images/quyen-gop.svg')}}" alt="quyen-gop" class="mb-4">
                                     <h4 class="my-2">Tôi muốn quyên góp</h4>
                                     <p class="my-2">
                                         Khởi tạo chiến dịch của bạn ngay lập tức, chỉ với vài thao tác đơn giản và dễ dàng
@@ -98,7 +98,7 @@
                             </div>
                             <div class="col-sm-6">
                                 <div class="my-2">
-                                    <img src="https://kindmate.net/svg/yeu-thuong.svg" alt="yeu-thuong" class="mb-4">
+                                    <img src="{{asset('images/yeu-thuong.svg')}}" alt="yeu-thuong" class="mb-4">
                                     <h4 class="my-2">Tôi muốn ủng hộ</h4>
                                     <p class="my-2">Hàng trăm chiến dịch đang cần sự trợ giúp của bạn, hãy cùng chúng tôi
                                         khám phá nhé</p>
