@@ -71,6 +71,6 @@
         </div>
     </div>
     <div class="container pb-4">
-        <span class="copyright-text">© Copyright 2018 CharityFence All Rights Reserved</span>
+        <span class="copyright-text">© Copyright 2020 CharityFence All Rights Reserved</span>
     </div>
 </footer>
