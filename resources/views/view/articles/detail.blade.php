@@ -140,7 +140,7 @@
                                             <div class="media align-items-center">
                                                 <img width="50" class="mr-2 avatar "
                                                     src="https://kindmate.net/images/user-avatar.png"
-                                                    alt="CLB tình nguyện Bé Khỏe Bé Ngoan">
+                                                    alt="">
                                                 <div class="media-body">
                                                     <p class="dotdotdot mb-0">CLB tình nguyện Bé Khỏe Bé Ngoan</p>
                                                     <div class="campaign-summary">

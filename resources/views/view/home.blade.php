@@ -94,7 +94,7 @@
                                 <div class="campaign-badge-box d-flex justify-content-between align-items-center">
                                     <img width="50" height="50" class="mr-2 avatar bg-white img-fill"
                                         src="{{asset($item->user->avatar ?? 'images/user.png')}}"
-                                        alt="CLB tình nguyện Bé Khỏe Bé Ngoan">
+                                        alt="">
                                 </div>
                                 <a href="{{route('view.campaign.detail', $item->id)}}">
                                     <h6 class="card-title mt-3 mb-2 text-body ">{{$item->name}}</h6>
