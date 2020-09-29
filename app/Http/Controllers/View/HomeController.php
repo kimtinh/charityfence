@@ -28,7 +28,7 @@ class HomeController extends Controller
             'take' => 8,
             'where' => [
                 ['status', 1],
-                ['date_end', '>=', Date('d-m-Y')]
+                ['date_end', '>=', Date('Y-m-d')]
             ],
         ];
         $listCampaign = $this->campaign->getAllCampaigns($params);
@@ -36,7 +36,7 @@ class HomeController extends Controller
             'take' => 3,
             'where' => [
                 'status' => 1,
-                ['date_end', '>=', Date('d-m-Y')],
+                ['date_end', '>=', Date('Y-m-d')],
                 ['price_total', '>', 0]
             ]
         ];

@@ -52,7 +52,7 @@
                         </article>
                     </div>
                     <div class="col-md-6 offset-sm-1 order-1 order-md-2 ">
-                        <img width="100%" class="my-3" src="https://kindmate.net/svg/donation.svg" alt="">
+                        <img width="100%" class="my-3"  src="{{asset('images/donation.svg')}}" >
                     </div>
                 </div>
             </div>

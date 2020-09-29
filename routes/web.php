@@ -66,6 +66,7 @@ Route::namespace('View')->name('view.')->group(function(){
     Route::post('/campaign/store', 'CampaignController@storeCampaign')->name('campaign.store')->middleware('auth');
     Route::get('/campaign/edit/{id}', 'CampaignController@edit')->name('campaign.edit')->middleware('auth');
     Route::post('/campaign/update/{id}', 'CampaignController@update')->name('campaign.update')->middleware('auth');
+    Route::post('/campaign/comment/{id}', 'CampaignController@comment')->name('campaign.comment')->middleware('auth');
 
     //donate
     Route::get('donate/{id}', 'DonateController@donate')->name('donate');

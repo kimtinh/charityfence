@@ -43,9 +43,9 @@ class CampaignController extends Controller
     public function explore(Request $request){
         $params = [
             'where' => [
-                            ['status', 1],
-                            ['date_end', '>=', Date('Y-m-d')]
-                        ],
+                ['status', 1],
+                ['date_end', '>=', Date('Y-m-d')]
+            ],
             'paginate' => 12,
             'search' => $request->search
         ];
@@ -71,6 +71,11 @@ class CampaignController extends Controller
             return redirect()->route('view.campaign.detail', $result->id)->with('success', 'Sửa chiến dịch thành công!');
         }
         return redirect()->back()->with('error', 'Sửa chiến dịch không thành công!');
+    }
+
+    public function comment(Request $request, $id) {
+        $request = $this->campaign->addComment($id, $request->comment);
+        return redirect()->route('view.campaign.detail', $id);
     }
 
 }

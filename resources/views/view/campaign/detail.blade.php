@@ -229,19 +229,25 @@
                 <article class="campaign-style3">
                     <div class="row">
                         <div class="col-lg-8">
-
                             <div class="donate-content pt-4" id="comments">
                                 <h3 class="mb-3">Bình luận</h3>
-                                <div class="k-comments">
-                                    <div class="fb-comments fb_iframe_widget fb_iframe_widget_fluid_desktop"
-                                        data-href="{{route('view.campaign.detail', $data->id)}}"
-                                        data-numposts="10" data-width="100%" fb-xfbml-state="rendered"
-                                        fb-iframe-plugin-query="app_id=337055250820503&amp;container_width=770&amp;height=100&amp;href=https%3A%2F%2Fkindmate.net%2Fproject%2F1404%2Ftrai-he-giao-duc-be-khoe-be-ngoan&amp;locale=en_US&amp;numposts=10&amp;sdk=joey&amp;version=v2.8&amp;width="
-                                        style="width: 100%;">
-                                        <span style="vertical-align: bottom; width: 100%; height: 178px;">
-                                        <iframe src="https://www.facebook.com/plugins/comment_embed.php?href=https%3A%2F%2Fwww.facebook.com%2Fzuck%2Fposts%2F10102577175875681%3Fcomment_id%3D1193531464007751%26reply_comment_id%3D654912701278942&include_parent=false&width=560&appId=337055250820503&height=134" width="560" height="134" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowTransparency="true" allow="encrypted-media"></iframe>
-                                        </span>
+                                @if(!empty($data->comment) && count($data->comment))
+                                    @foreach($data->comment as $cmt) 
+                                    <div class="form-comment mb-3">
+                                        <a href="{{route('view.profile', $cmt->user->id)}}" class="mb-0 d-flex align-items-center font-weight-bold text-primary"> <img src="{{asset($cmt->user->avatar ?? 'images/user.png')}}" class="avt-cmt mr-1" alt="avatar"> {{$cmt->user->name}}</a>
+                                        <p class="mb-0 ml-4 pre-line">{{$cmt->content}}</p>
+                                        <i class="text-sm ml-4">Lúc: {{Date('d/m/Y H:i:s', strtotime($cmt->created_at))}}</i>
                                     </div>
+                                    @endforeach
+                                @endif
+
+                                <form class="k-comments" action="{{route('view.campaign.comment', $data->id)}}" method="post"> 
+                                    @csrf
+                                   <textarea name="comment" class="form-control" id="" rows="3"></textarea>
+                                   <div class="text-right mt-3">
+                                    <button type="submit" class="btn btn-sm btn-primary">Gửi</button>
+                                   </div>
+                                </form>
                                 </div>
                             </div>
                         </div>

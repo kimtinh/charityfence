@@ -28,4 +28,8 @@ class Campaign extends Model
     public function donate(){
         return $this->hasMany('App\Donate');
     }
+
+    public function comment () {
+        return $this->hasMany('App\Comment');
+    }
 }

@@ -17,7 +17,7 @@ class CreateTableComment extends Migration
             $table->id();
             $table->text('content');
             $table->unsignedBigInteger('user_id');
-            $table->unsignedBigInteger('post_id');
+            $table->unsignedBigInteger('campaign_id');
             $table->timestamps();
         });
     }

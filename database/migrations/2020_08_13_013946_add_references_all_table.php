@@ -22,7 +22,7 @@ class AddReferencesAllTable extends Migration
         });
         Schema::table('comment', function (Blueprint $table) {
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
-            $table->foreign('post_id')->references('id')->on('post')->onDelete('cascade');
+            $table->foreign('campaign_id')->references('id')->on('campaign')->onDelete('cascade');
         });
     }
 

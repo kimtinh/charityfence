@@ -236,3 +236,13 @@ img.embed-responsive-item {
 .min-w-0{
     min-width: initial;
 }
+.avt-cmt{
+    width: 20px;
+    height: 20px;
+    object-fit: cover;
+    object-position: center center;
+    border-radius: 50%;
+}
+.pre-line{
+    white-space: pre-line;
+} 

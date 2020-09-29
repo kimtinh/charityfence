@@ -8,10 +8,10 @@ class Comment extends Model
 {
     //
     protected $table = 'comment';
-    protected $fillable = ['content','user_id','post_id'];
+    protected $fillable = ['content','user_id','campaign_id'];
 
-    public function post(){
-        return $this->belongsTo('App\Post');
+    public function campaign(){
+        return $this->belongsTo('App\Campaign');
     }
 
     public function user(){
