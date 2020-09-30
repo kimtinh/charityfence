@@ -15,7 +15,7 @@
                             Minh bạch quyên góp <br> Dễ dàng ủng hộ
                         </h1>
                         <p class="text-secondary my-4 pr-4 text-intro">
-                            Kindmate là một nền tảng gây quỹ cộng đồng - nơi mọi cá nhân, tổ chức đều có thể tự tạo
+                            Charityfence là một nền tảng gây quỹ cộng đồng - nơi mọi cá nhân, tổ chức đều có thể tự tạo
                             một
                             trang web gây quỹ nhanh chóng và chuyên nghiệp...
                             <a href="about.html">Tìm hiểu</a>
@@ -226,9 +226,9 @@
                 <div class="row">
                     <div class="col-md-5 order-2 order-md-1 d-flex align-items-center">
                         <article class="introduce-box">
-                            <h2>Kindmate là một nền tảng gây quỹ cộng đồng</h2>
+                            <h2>Charityfence là một nền tảng gây quỹ cộng đồng</h2>
                             <p class="my-3 text-secondary">
-                                Được phát triển bởi Wakeitup, Kindmate tập trung vào việc sử dụng công nghệ để giảm bớt
+                                Được phát triển bởi Wakeitup, Charityfence tập trung vào việc sử dụng công nghệ để giảm bớt
                                 rào cản và kết
                                 nối các nguồn lực cộng đồng, giúp cho việc gây quỹ trở nên đơn giản, hiệu quả và minh
                                 bạch.
